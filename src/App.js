@@ -1,9 +1,13 @@
-import HelloWorld from "./HelloWorld";
+import HomePage from "./components/pages/HomePage";
+
+const { Switch, Route } = require("react-router-dom");
 
 function App() {
   return (
     <div className="App">
-      <HelloWorld />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+      </Switch>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 
 // Style
-import "./scss/App.scss";
+import "./index.scss";
 
 // Hot module replacement
 const rootEl = document.getElementById("root");

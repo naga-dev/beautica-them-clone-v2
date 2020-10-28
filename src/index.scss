@@ -1,0 +1,155 @@
+// ===================================================================
+// ============================= App Fonts ===========================
+// ===================================================================
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+// ===================================================================
+// ============================= Reset Elements ======================
+// ===================================================================
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+// ===================================================================
+// ============================= Breakpoints =========================
+// ===================================================================
+
+$breakpoint-xs: 0;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// ===================================================================
+// ============================= Colors ==============================
+// ===================================================================
+
+$dark: #000000;
+$mainGray: #373e46;
+$darkRed: #e7040f;
+$lightGray: #f7f7f7;
+$green: #6aa004;
+$orange: #ed6912;
+$link: #dfdfdf;
+$red: #ff0000;
+$blue: #008ddd;
+$aqua: aqua;
+$mediumRed: #fa8072;
+$silvar: silver;
+$buyItNow: #f9f9f9;
+$customLabel: #383e46;
+$pink: #e9446e;
+
+// ===================================================================
+// ============================= Margin ==============================
+// ===================================================================
+
+@for $i from 1 through 100 {
+  .mr-all-#{$i} {
+    margin: $i + px;
+  }
+}
+
+@for $i from 1 through 100 {
+  .mr-top-#{$i} {
+    margin-top: $i + px;
+  }
+}
+
+@for $i from 1 through 100 {
+  .mr-right-#{$i} {
+    margin-right: $i + px;
+  }
+}
+
+@for $i from 1 through 100 {
+  .mr-bottom-#{$i} {
+    margin-bottom: $i + px;
+  }
+}
+
+@for $i from 1 through 100 {
+  .mr-left-#{$i} {
+    margin-left: $i + px;
+  }
+}
+
+// ===================================================================
+// ============================= Padding =============================
+// ===================================================================
+
+@for $i from 1 through 100 {
+  .pd-all-#{$i} {
+    padding: $i + px;
+  }
+}
+
+@for $i from 1 through 100 {
+  .pd-top-#{$i} {
+    padding-top: $i + px;
+  }
+}
+
+@for $i from 1 through 100 {
+  .pd-right-#{$i} {
+    padding-right: $i + px;
+  }
+}
+
+@for $i from 1 through 100 {
+  .pd-bottom-#{$i} {
+    padding-bottom: $i + px;
+  }
+}
+
+@for $i from 1 through 100 {
+  .pd-left-#{$i} {
+    padding-left: $i + px;
+  }
+}
+
+// ===================================================================
+// ============================= Mixins ==============================
+// ===================================================================
+@mixin customBtn($bg, $color, $fSize, $padding, $transBg, $transColor) {
+  background-color: $bg;
+  color: $color;
+  padding: $padding;
+  font-size: $fSize;
+  border-radius: 4px;
+  transition: all 0.4s ease-in-out;
+  border: none;
+  outline: none;
+
+  &:hover {
+    background-color: $transBg;
+    color: $transColor;
+  }
+}
+
+// ===================================================================
+// ============================= Classes =============================
+// ===================================================================
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+@media (max-width: $breakpoint-xl) {
+  .container {
+    width: 95%;
+  }
+}

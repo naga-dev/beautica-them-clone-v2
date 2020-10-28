@@ -1,7 +1,11 @@
+// Components
+import UpperHeader from "./components/utils/upper-header/upper-header.comp";
+
 function App() {
   return (
     <div className="App">
-      <h1>Fresh app</h1>
+      <UpperHeader />
+      <span>hello world again</span>
     </div>
   );
 }

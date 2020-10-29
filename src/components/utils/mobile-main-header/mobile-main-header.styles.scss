@@ -1,0 +1,225 @@
+.mobile-main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+
+  .open-side-bar {
+    svg {
+      font-size: 20px;
+      color: #333;
+    }
+  }
+  .logo {
+    img {
+      max-width: 120px;
+    }
+  }
+  .shopping-cart {
+    position: relative;
+
+    .cart-shopping-bag {
+      width: 30px;
+      height: auto;
+    }
+
+    .product-in-your-cart {
+      position: absolute;
+      background: #fff;
+      top: 50px;
+      right: 0;
+      z-index: 9999;
+      width: 320px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+
+      .cart-product-details {
+        display: flex;
+        justify-content: space-between;
+
+        .product-img {
+          img {
+            display: block;
+            width: 60px;
+            height: 65px;
+            margin-right: 10px;
+            border: 1px solid #ebebeb;
+          }
+        }
+        .product-details {
+          .product-name {
+            color: #000;
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 10px;
+          }
+
+          .product-category {
+            color: #000;
+            font-size: 12px;
+            line-height: 15px;
+            display: block;
+
+            &:hover {
+              color: #e7040f;
+            }
+          }
+
+          .product-qty {
+            font-size: 12px;
+            color: #000;
+            margin-top: 10px;
+          }
+        }
+      }
+
+      .horizantal-line {
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: #ebebeb;
+        margin: 10px 0;
+      }
+
+      #checkout-now {
+        background-color: #000;
+        color: #fff;
+        width: 100%;
+        border-radius: 4px;
+        padding: 13px 0;
+        display: block;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 12px;
+        margin-bottom: 15px;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          background-color: #e82b1a;
+        }
+      }
+
+      #view-your-cart {
+        display: block;
+        width: 100%;
+        background: #fff;
+        color: #000;
+        text-transform: uppercase;
+        padding: 10px 0;
+        border: 1px solid #cbcbcb;
+        font-size: 13px;
+        font-weight: 600;
+        transition: all 0.4s ease-in-out;
+        border-radius: 2px;
+        text-align: center;
+        margin-bottom: 15px;
+
+        &:hover {
+          background-color: #000;
+          color: #fff;
+        }
+      }
+
+      .or-use {
+        display: block;
+        text-align: center;
+        font-size: 12px;
+        margin-bottom: 15px;
+      }
+    }
+
+    .cart-products {
+      position: absolute;
+      top: -15px;
+      left: 13px;
+      background-color: #e7040f;
+      color: #fff;
+      border-radius: 50%;
+      display: block;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      line-height: 20px;
+      font-size: 13px;
+    }
+
+    .checkout-with-paypal {
+      display: block;
+
+      img {
+        margin: 0 auto;
+        display: block;
+      }
+    }
+  }
+
+  // Side navbar
+}
+.sideNav {
+  position: relative;
+  background-color: #ffffff;
+  max-width: 250px;
+  border-right: 1px solid #80808063;
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+
+  .close-side-nav {
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  ul {
+    li {
+      border-bottom: 1px solid #e5e5e5;
+      padding: 10px;
+      position: relative;
+      overflow: hidden;
+
+      a {
+        color: #000;
+        font-size: 13px;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+
+      i {
+        font-size: 10px;
+        position: absolute;
+        top: 15px;
+        right: 10px;
+      }
+    }
+    .trend-now-menu {
+      display: flex;
+      flex-direction: column;
+      padding: 0 10px;
+
+      a {
+        font-size: 11px;
+        border-bottom: 1px solid #e5e5e5;
+        padding: 7px 5px;
+        font-weight: 600;
+      }
+
+      a:last-of-type {
+        border-bottom: none !important;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .sideNav {
+    display: none;
+  }
+}

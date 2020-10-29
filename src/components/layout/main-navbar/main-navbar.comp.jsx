@@ -28,7 +28,7 @@ const MainNavbar = () => {
               </Link>
               <div className="trend-now-menu">
                 <ul className="trend-now-submenu">
-                { columnTexts.map((item, idx) => <li><Link key={idx} to="#">{item}</Link></li>) }
+                { columnTexts.map((item, idx) => <li key={idx}><Link to="#">{item}</Link></li>) }
                 </ul>
               </div>
             </li>
@@ -39,41 +39,42 @@ const MainNavbar = () => {
               <Link to="/nail">nail</Link>
             </li>
 
-            <li className="beauty-accessories-menu-element">
+            <motion.li className="beauty-accessories-menu-element"
+              initial={{opacity: 0}}
+              animate={{opacity: 1}}
+            >
               <Link to="/beauty-accessories">
                 beauty accessories
                 <FaChevronDown />
               </Link>
-              <motion.ul className="beauty-accessories-menu-content" 
-                initial={{opacity: 0}}
-                animate={{opacity: 1}}
+              <ul className="beauty-accessories-menu-content" 
               >
                 <div className="container">
                   <div className="custom-row">
                     <div className="column">
                       <div className="column-title">lorem de dorus</div>
-                      { columnTexts.map((item, idx) => <Link key={idx}>{item}</Link>) }
+                      { columnTexts.map((item, idx) => <Link key={idx} to="#">{item}</Link>) }
                     </div>
                     <div className="column">
                       <div className="column-title">millancelos a lanos</div>
-                      { columnTexts.map((item, idx) => <Link key={idx}>{item}</Link>) }
+                      { columnTexts.map((item, idx) => <Link key={idx} to="#">{item}</Link>) }
                     </div>
                     <div className="column">
                       <div className="column-title">lynn cospoplis</div>
-                      { columnTexts.map((item, idx) => <Link key={idx}>{item}</Link>) }
+                      { columnTexts.map((item, idx) => <Link key={idx} to="#">{item}</Link>) }
                     </div>
                     <div className="column">
                       <div className="column-title">nor loremirus</div>
-                      { columnTexts.map((item, idx) => <Link key={idx}>{item}</Link>) }
+                      { columnTexts.map((item, idx) => <Link key={idx} to="#">{item}</Link>) }
                     </div>
                     <div className="column">
                       <div className="column-title">accessories</div>
-                      { columnTexts.map((item, idx) => <Link key={idx}>{item}</Link>) }
+                      { columnTexts.map((item, idx) => <Link key={idx} to="#">{item}</Link>) }
                     </div>
                   </div>
                 </div>
-              </motion.ul>
-            </li>
+              </ul>
+            </motion.li>
             <li>
               <Link to="/body-art">body art</Link>
             </li>

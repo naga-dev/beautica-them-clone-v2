@@ -1,0 +1,257 @@
+// ============================= Mixins =============================
+@mixin customBtn($bg, $color, $fSize, $padding, $transBg, $transColor) {
+  background-color: $bg;
+  color: $color;
+  padding: $padding;
+  font-size: $fSize;
+  border-radius: 4px;
+  transition: all 0.4s ease-in-out;
+  border: none;
+  outline: none;
+
+  &:hover {
+    background-color: $transBg;
+    color: $transColor;
+  }
+}
+
+.home-page-sliser-wrapper {
+  .slider-item {
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    &.carousel {
+      position: relative;
+
+      .carousel-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        width: 600px;
+        height: 300px;
+        text-align: center;
+        font-size: 25px;
+
+        h1 {
+          text-transform: uppercase;
+          letter-spacing: 2px;
+        }
+
+        .carousel-description {
+          margin-top: 10px;
+          font-size: 25px;
+          p {
+            font-size: 0.5em;
+          }
+        }
+
+        .show-now-btn {
+          position: absolute;
+          bottom: -20px;
+
+          a {
+            @include customBtn(#000, #fff, 14px, 10px 20px, #e7040f, #fff);
+            text-transform: uppercase;
+            font-weight: bold;
+          }
+        }
+      }
+
+      .mobile-carousel-content {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        h1 {
+          text-transform: uppercase;
+          font-size: 20px;
+        }
+
+        .carousel-description {
+          margin-top: 10px;
+          font-size: 25px;
+          p {
+            font-size: 0.5em;
+          }
+        }
+
+        .show-now-btn {
+          margin-top: 20px;
+          display: flex;
+          justify-content: center;
+
+          a {
+            @include customBtn(#000, #fff, 14px, 10px 20px, #e7040f, #fff);
+            text-transform: uppercase;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    &.secondCarousel {
+      position: relative;
+
+      .secondCarousel-content {
+        padding: 25px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        width: 600px;
+        height: 300px;
+        text-align: center;
+        font-size: 25px;
+
+        h1 {
+          text-transform: uppercase;
+          letter-spacing: 2px;
+        }
+
+        .secondCarousel-description {
+          margin-top: 10px;
+          font-size: 25px;
+          p {
+            font-size: 0.5em;
+          }
+        }
+
+        .show-now-btn {
+          position: absolute;
+          bottom: -20px;
+
+          a {
+            @include customBtn(#000, #fff, 14px, 10px 20px, #e7040f, #fff);
+            text-transform: uppercase;
+            font-weight: bold;
+          }
+        }
+      }
+
+      .mobile-secondCarousel-content {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        h1 {
+          text-transform: uppercase;
+          font-size: 20px;
+        }
+
+        .carousel-description {
+          margin-top: 10px;
+          font-size: 25px;
+          p {
+            font-size: 0.5em;
+          }
+        }
+
+        .show-now-btn {
+          margin-top: 20px;
+          display: flex;
+          justify-content: center;
+
+          a {
+            @include customBtn(#000, #fff, 14px, 10px 20px, #e7040f, #fff);
+            text-transform: uppercase;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+
+  .swiper-button-prev {
+    left: 30px !important;
+    background: #fff;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50%;
+    text-align: center;
+    outline: none;
+  }
+
+  .swiper-button-next {
+    right: 30px !important;
+    background: #fff;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50%;
+    text-align: center;
+    outline: none;
+  }
+
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    font-size: 22px !important;
+    color: #000;
+  }
+}
+
+@media screen and(min-width: 768px) {
+  .mobile-carousel-content,
+  .mobile-secondCarousel-content {
+    display: none !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important;
+  }
+
+  .home-page-sliser-wrapper {
+    .carousel-content,
+    .secondCarousel-content {
+      display: none !important;
+      border: 1px solid red;
+    }
+  }
+
+  .mobile-carousel-content,
+  .mobile-secondCarousel-content {
+    display: block !important;
+
+    .show-now-btn {
+      a {
+        width: 120px !important;
+        font-size: 10px !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .home-page-sliser-wrapper {
+    .carousel-content,
+    .secondCarousel-content {
+      display: none !important;
+    }
+    .secondCarousel-description {
+      p {
+        font-size: 0.8em;
+      }
+    }
+  }
+}

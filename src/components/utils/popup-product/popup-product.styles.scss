@@ -1,0 +1,61 @@
+.popup-product-wrapper {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #fff;
+  z-index: 9999;
+  width: 400px;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  -webkit-box-shadow: 6px 6px 12px 0px rgba(55, 50, 50, 0.49);
+  -moz-box-shadow: 6px 6px 12px 0px rgba(55, 50, 50, 0.49);
+  box-shadow: 6px 6px 12px 0px rgba(55, 50, 50, 0.49);
+
+  .product-img-wrapper {
+    margin-right: 5px;
+
+    img {
+      width: 100px;
+      height: 100px;
+      display: block;
+      border-right: 1px solid #8080806e;
+    }
+  }
+
+  .popup-content {
+    padding: 10px;
+    font-size: 14px;
+
+    a {
+      color: #000;
+      margin-bottom: 10px;
+      display: block;
+      transition: all 0.4s ease-in-out;
+      width: 80%;
+      font-size: 12px;
+
+      &:hover {
+        color: #e7040f;
+      }
+    }
+
+    .product-price {
+      color: #e7040f;
+      font-weight: 600;
+    }
+
+    .close {
+      position: absolute;
+      top: 0px;
+      right: 0;
+      cursor: pointer;
+      background-color: #000;
+      color: #fff;
+      padding: 4px 10px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+}

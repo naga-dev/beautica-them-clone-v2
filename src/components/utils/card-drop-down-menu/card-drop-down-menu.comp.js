@@ -4,18 +4,19 @@ import { Link } from "react-router-dom";
 import PayPalCheckout from "../../../assets/images/checkout-logo-small.png";
 import img from "../../../assets/images/products/product-12.webp";
 
-import {motion} from 'framer-motion'
+import { motion } from "framer-motion";
 
-// Styles 
-import "./card-drop-down-menu.styles.scss"
+// Styles
+import "./card-drop-down-menu.styles.scss";
 
 const CartDropDownMenu = ({ toggleCardHidden }) => {
   return (
     <>
       {toggleCardHidden && (
-        <motion.div className="product-in-your-cart"
-        initial={{height: 0}}
-        animate={{height: "auto"}}
+        <motion.div
+          className="product-in-your-cart"
+          initial={{ height: 0 }}
+          animate={{ height: "auto" }}
         >
           <div className="cart-product-details">
             <div className="product-img">
@@ -38,7 +39,7 @@ const CartDropDownMenu = ({ toggleCardHidden }) => {
             view cart
           </Link>
 
-          <Link to="/checkout" id="checkout-now">
+          <Link to="#" id="checkout-now">
             check out now
           </Link>
 

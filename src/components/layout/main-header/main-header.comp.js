@@ -11,80 +11,71 @@ import AppLogo from "../../../assets/images/logo.webp";
 import ShoppingBag from "../../../assets/svg/shopping-bag.svg";
 
 // Styles
-import "./main-header.styles.scss"
+import "./main-header.styles.scss";
 import { connect } from "react-redux";
 import { toggleCardMenuHidden } from "../../../redux/card-menu/card-menu.actions";
 
-const MainHeader = ({toggleCardMenuHidden, toggleCardHidden}) => {
-    return (
-      <>
-        <div className="main-header">
-          <div className="container">
-            <div className="main-header-content">
+const MainHeader = ({ toggleCardMenuHidden, toggleCardHidden }) => {
+  return (
+    <>
+      <div className="main-header">
+        <div className="container">
+          <div className="main-header-content">
+            <div className="search-products">
+              <input
+                type="text"
+                id="searchForProduct"
+                placeholder="Search for products"
+                autoComplete="off"
+              />
+            </div>
 
-              <div className="search-products">
-                <input
-                  type="text"
-                  id="searchForProduct"
-                  placeholder="Search for products"
-                  autoComplete="off"
-                />
-              </div>
+            <div className="logo">
+              <Link to="/">
+                <img src={AppLogo} alt="logo" />
+              </Link>
+            </div>
 
-              <div className="logo">
-                <Link to="/">
-                  <img src={AppLogo} alt="logo" />
+            <div className="user-actions">
+              <div className="hi-customer">
+                <div>Hi Customer</div>
+                <Link to="/register">Login</Link>
+                <span className="or-sperator">or</span>
+                <Link to="/register" className="font-bold">
+                  Register
                 </Link>
               </div>
+              <div className="vertical-line"></div>
+              <div className="shopping-cart font" onClick={toggleCardMenuHidden}>
+                <Link to="#" className="wishlist">
+                  <FaHeart />
+                </Link>
 
-              <div className="user-actions">
-                <div className="hi-customer">
-                  <div>Hi Customer</div>
-                  <Link to="/register">
-                    Login
-                  </Link>
-                  <span className="or-sperator">or</span>
-                  <Link to="/register" className="font-bold">
-                    Register
-                  </Link>
+                {/* Drop down cart menu   */}
+                <div className="in-your-cart">
+                  <img src={ShoppingBag} id="header-shopping-cart" alt="" />
+                  <span className="cart-products">0</span>
+
+                  <CartDropDownMenu toggleCardHidden={toggleCardHidden} />
                 </div>
-                <div className="vertical-line"></div>
-                <div className="shopping-cart font" onClick={toggleCardMenuHidden}>
-                  <Link to="#" className="wishlist">
-                    <FaHeart />
-                  </Link>
-
-                  {/* Drop down cart menu   */}
-                  <div
-                    className="in-your-cart"
-                  >
-                    <img src={ShoppingBag} id="header-shopping-cart" alt="" />
-                    <span className="cart-products">0</span>
-
-                    <CartDropDownMenu toggleCardHidden={toggleCardHidden} />
-                  </div>
-                  {/* Drop down cart menu */}
-                </div>
+                {/* Drop down cart menu */}
               </div>
-
-              
-
             </div>
           </div>
         </div>
+      </div>
 
-        <MobileMainHeader />
-      </>
-    );
-}
-
+      <MobileMainHeader />
+    </>
+  );
+};
 
 const mapStateToProps = state => ({
-  toggleCardHidden: state.toggleCardHidden.hidden
-})
+  toggleCardHidden: state.toggleCardHidden.hidden,
+});
 
 const mapDispatchToProps = dispatch => ({
-  toggleCardMenuHidden: () => dispatch(toggleCardMenuHidden())
-})
+  toggleCardMenuHidden: () => dispatch(toggleCardMenuHidden()),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainHeader);

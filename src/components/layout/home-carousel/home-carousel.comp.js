@@ -14,16 +14,15 @@ const HomePageCarousel = () => {
     new Swiper(".swiper-container", {
       slidesPerView: 1,
       autoplay: {
-        delay: 2000
-      }
+        delay: 2000,
+      },
     });
   });
 
   return (
-    <div className="home-page-sliser-wrapper">
+    <div className="home-page-sliser-wrapper container">
       <div className="swiper-container">
         <div className="swiper-wrapper">
-
           <div className="swiper-slide">
             <div className="slider-item carousel">
               <img src={SliderOneImg} alt="slide-1" />
@@ -52,7 +51,6 @@ const HomePageCarousel = () => {
               </div>
             </div>
           </div>
-
 
           <div className="swiper-slide">
             <div className="slider-item secondCarousel">

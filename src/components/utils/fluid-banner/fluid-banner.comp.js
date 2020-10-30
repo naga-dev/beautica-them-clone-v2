@@ -6,10 +6,9 @@ import BannerItem3 from "../../../assets/images/fluid-grid/item-3.jpg";
 // Styles
 import "./fluid-banner.styles.scss";
 
-
 const FluidBanner = () => {
   return (
-    <div className="fluid-banner-wrapper">
+    <div className="fluid-banner-wrapper container">
       <div className="banner-item">
         <img src={BannerItem1} alt="banner-item-1" />
         <div className="banner-content">

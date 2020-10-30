@@ -39,9 +39,9 @@ const MainHeader = ({ toggleCardMenuHidden, toggleCardHidden }) => {
             <div className="user-actions">
               <div className="hi-customer">
                 <div>Hi Customer</div>
-                <Link to="/register">Login</Link>
+                <Link to="/user/account">Login</Link>
                 <span className="or-sperator">or</span>
-                <Link to="/register" className="font-bold">
+                <Link to="/user/account" className="font-bold">
                   Register
                 </Link>
               </div>

@@ -1,6 +1,5 @@
 // Components
 import { Route, Switch } from "react-router-dom";
-import HomeCarousel from "./components/layout/home-carousel/home-carousel.comp";
 import MainHeader from "./components/layout/main-header/main-header.comp";
 import MainNavbar from "./components/layout/main-navbar/main-navbar.comp";
 import HomePage from "./components/pages/home-page/home-page.comp";
@@ -13,7 +12,6 @@ function App() {
       <UpperHeader />
       <MainHeader />
       <MainNavbar />
-      <HomeCarousel />
 
       {/*  Routting */}
       <Switch>

@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 // import AppFooter from "./components/layout/app-footer/app-footer.comp";
 import MainHeader from "./components/layout/main-header/main-header.comp";
 import MainNavbar from "./components/layout/main-navbar/main-navbar.comp";
+import ShoppingCard from "./components/pages/card-page/card-page.comp";
 import HomePage from "./components/pages/home-page/home-page.comp";
 import UserAccount from "./components/pages/login-and-register/login-and-register.comp";
 import LookBook from "./components/pages/lookbook-page/lookbook-page.comp";
@@ -23,6 +24,7 @@ function App() {
         <Route path="/shop" component={ShopPage} />
         <Route path="/lookbook" component={LookBook} />
         <Route path="/user/account" component={UserAccount} />
+        <Route path="/cart" component={ShoppingCard} />
         <Route path="/test" component={TestPage} />
       </Switch>
       {/* <AppFooter /> */}

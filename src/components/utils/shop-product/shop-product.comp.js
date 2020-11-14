@@ -7,13 +7,8 @@ import { Link } from "react-router-dom";
 // Styles
 import "./shop-product.styles.scss";
 
-const ShopProduct = ({ view, productName, originalImg, hoverImg, price, description, category}) => {
-  // TODO
-  // showModal: false,
-  // closeModal() {
-  //   this.setState({ showModal: false });
-  // }
-  // const { showModal } = this.state;
+const ShopProduct = ({ view, item }) => {
+  const { productName, originalImg, price, description } = item;
 
   return (
     <div className="single-product-wrapper">
@@ -25,9 +20,7 @@ const ShopProduct = ({ view, productName, originalImg, hoverImg, price, descript
           <div className="add-to-wish-list">
             <FaHeart />
           </div>
-          <div className="quick-view">
-            Quick View
-          </div>
+          <div className="quick-view">Quick View</div>
         </div>
 
         <div className="product-details">
@@ -54,5 +47,5 @@ const ShopProduct = ({ view, productName, originalImg, hoverImg, price, descript
       {/* {showModal && <ProductModal closeModal={this.closeModal} />} */}
     </div>
   );
-}
+};
 export default ShopProduct;

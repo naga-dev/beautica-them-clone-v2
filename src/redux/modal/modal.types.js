@@ -1,0 +1,5 @@
+const MODAL_TYPES = {
+  TOGGLE_HIDDEN_MODAL: "TOGGLE_HIDDEN_MODAL",
+};
+
+export default MODAL_TYPES;

@@ -53,7 +53,7 @@ const PageSection = ({ title, subTitle }) => {
           <div className="swiper-wrapper">
             {SHOP_PRODUCTS.map(item => (
               <div key={item.id} className="swiper-slide">
-                <ShopProduct {...item} />
+                <ShopProduct item={item} />
               </div>
             ))}
           </div>

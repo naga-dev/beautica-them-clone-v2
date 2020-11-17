@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 
+import { connect } from "react-redux";
+
 import AppLogo from "../../../assets/images/logo.webp";
 import CartLogo from "../../../assets/svg/shopping-bag.svg";
 
 // Styles
 import "./scroll-navbar.styles.scss";
 
-const ScrollNavar = () => {
+const ScrollNavar = ({ cartItemsCount }) => {
   const [toggleSearchBar, setToggleSearchBar] = useState(true);
   const links = [
     "#trend-now",
@@ -71,7 +73,7 @@ const ScrollNavar = () => {
           <img src={CartLogo} alt="shopping-cart-icon" />
 
           <div className="product-quantity">
-            <span>1</span>
+            <span>{cartItemsCount}</span>
           </div>
         </Link>
       </div>
@@ -79,4 +81,8 @@ const ScrollNavar = () => {
   );
 };
 
-export default ScrollNavar;
+const mapStateToProps = ({ cart: { cartItems } }) => ({
+  cartItemsCount: cartItems.reduce((accumulator, cartItem) => accumulator + cartItem.quantity, 0),
+});
+
+export default connect(mapStateToProps)(ScrollNavar);

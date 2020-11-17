@@ -6,15 +6,13 @@ import { connect } from "react-redux";
 // Styles
 import "./card-page.styles.scss";
 
-const ShoppingCard = ({ cartItems }) => {
-  console.log(cartItems);
+const ShoppingCard = ({ cartItems, cartItemCount }) => {
   return (
     <div className="cart-page-wrapper container">
       <div className="cart-page-content-wrapper font">
         <div className="cart-page-content">
           <h3>
-            your cart{" "}
-            <span className="items-count-in-shopping-cart">({cartItems.length} items)</span>
+            your cart <span className="items-count-in-shopping-cart">({cartItemCount} items)</span>
           </h3>
         </div>
 
@@ -80,8 +78,9 @@ const ShoppingCard = ({ cartItems }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  cartItems: state.cartItems.cartItems,
+const mapStateToProps = ({ cart: { cartItems } }) => ({
+  cartItems,
+  cartItemCount: cartItems.reduce((accumulator, cartItem) => accumulator + cartItem.quantity, 0),
 });
 
 export default connect(mapStateToProps)(ShoppingCard);

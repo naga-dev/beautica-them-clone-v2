@@ -9,8 +9,8 @@ import { motion } from "framer-motion";
 // Styles
 import "./card-drop-down-menu.styles.scss";
 
-const CartDropDownMenu = ({ toggleCardHidden, cartItems }) => {
-  console.log(cartItems);
+const CartDropDownMenu = ({ toggleCardHidden, cartItems, cartItemCount }) => {
+  console.log(cartItemCount);
   return (
     <>
       {toggleCardHidden && (
@@ -19,9 +19,8 @@ const CartDropDownMenu = ({ toggleCardHidden, cartItems }) => {
           initial={{ height: 0 }}
           animate={{ height: "auto" }}
         >
-          {cartItems
-            .filter((cartItem, idx) => idx < 3)
-            .map(({ id, productName, price, originalImg, quantity }, idx) => (
+          <div className="cart-details-wrapper">
+            {cartItems.map(({ id, productName, price, originalImg, quantity }, idx) => (
               <div className="cart-product-details" key={idx}>
                 <div className="product-img">
                   <img src={originalImg} id="product-example-img" alt="cart-product" />
@@ -39,6 +38,7 @@ const CartDropDownMenu = ({ toggleCardHidden, cartItems }) => {
                 </div>
               </div>
             ))}
+          </div>
 
           {cartItems.length < 1 ? (
             <span className="no-item-in-cart">No items in your Cart</span>
@@ -62,8 +62,9 @@ const CartDropDownMenu = ({ toggleCardHidden, cartItems }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  cartItems: state.cartItems.cartItems,
+const mapStateToProps = ({ cart: { cartItems } }) => ({
+  cartItems,
+  cartItemCount: cartItems.reduce((accumulator, cartItem) => accumulator + cartItem.quantity, 0),
 });
 
 export default connect(mapStateToProps)(CartDropDownMenu);

@@ -6,7 +6,7 @@ import cartReducer from "./shopping-cart/cart.reducer";
 const rootReducer = combineReducers({
   toggleCardHidden: cardMenuReducer,
   modal: modalReducer,
-  cartItems: cartReducer,
+  cart: cartReducer,
 });
 
 export default rootReducer;

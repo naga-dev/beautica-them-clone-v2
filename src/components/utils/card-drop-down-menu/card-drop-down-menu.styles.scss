@@ -15,6 +15,11 @@
     margin-right: 10px;
     border: 1px solid #ebebeb;
   }
+  .cart-details-wrapper {
+    margin-bottom: 15px;
+    max-height: 250px;
+    overflow: auto;
+  }
 
   .cart-product-details {
     display: flex;

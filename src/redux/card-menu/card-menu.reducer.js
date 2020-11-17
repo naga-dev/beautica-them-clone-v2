@@ -8,7 +8,6 @@ const cardMenuReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case CARD_MENU_TYPES.TOGGLE_CARD_HIDDEN:
       return {
-        ...state,
         hidden: !state.hidden,
       };
     default:

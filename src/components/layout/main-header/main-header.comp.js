@@ -15,7 +15,7 @@ import "./main-header.styles.scss";
 import { connect } from "react-redux";
 import { toggleCardMenuHidden } from "../../../redux/card-menu/card-menu.actions";
 
-const MainHeader = ({ toggleCardMenuHidden, toggleCardHidden, cartItems }) => {
+const MainHeader = ({ toggleCardMenuHidden, hidden, cartItemsCount }) => {
   return (
     <>
       <div className="main-header">
@@ -54,9 +54,9 @@ const MainHeader = ({ toggleCardMenuHidden, toggleCardHidden, cartItems }) => {
                 {/* Drop down cart menu   */}
                 <div className="in-your-cart">
                   <img src={ShoppingBag} id="header-shopping-cart" alt="" />
-                  <span className="cart-products">{cartItems.length}</span>
+                  <span className="cart-products">{cartItemsCount}</span>
 
-                  <CartDropDownMenu toggleCardHidden={toggleCardHidden} />
+                  <CartDropDownMenu toggleCardHidden={hidden} />
                 </div>
                 {/* Drop down cart menu */}
               </div>
@@ -70,9 +70,9 @@ const MainHeader = ({ toggleCardMenuHidden, toggleCardHidden, cartItems }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  toggleCardHidden: state.toggleCardHidden.hidden,
-  cartItems: state.cartItems.cartItems,
+const mapStateToProps = ({ toggleCardHidden: { hidden }, cart: { cartItems } }) => ({
+  hidden,
+  cartItemsCount: cartItems.reduce((accumulator, cartItem) => accumulator + cartItem.quantity, 0),
 });
 
 const mapDispatchToProps = dispatch => ({

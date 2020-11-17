@@ -148,7 +148,7 @@ const ShopPage = () => {
             <div className={view === "grid" ? "category-page-products-content" : "one-grid-column"}>
               {SHOP_PRODUCTS.map(item => (
                 <div className="swiper-slide" key={item.id}>
-                  <ShopProduct view={view} {...item} />
+                  <ShopProduct view={view} item={item} />
                 </div>
               ))}
             </div>

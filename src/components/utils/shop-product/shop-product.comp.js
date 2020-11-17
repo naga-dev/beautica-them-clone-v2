@@ -3,11 +3,13 @@ import React from "react";
 import { MdStar, MdStarHalf } from "react-icons/md";
 import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 // Styles
 import "./shop-product.styles.scss";
+import { addItem } from "../../../redux/shopping-cart/cart.actions";
 
-const ShopProduct = ({ view, item }) => {
+const ShopProduct = ({ view, item, addItem }) => {
   const { productName, originalImg, price, description } = item;
 
   return (
@@ -20,7 +22,6 @@ const ShopProduct = ({ view, item }) => {
           <div className="add-to-wish-list">
             <FaHeart />
           </div>
-          <div className="quick-view">Quick View</div>
         </div>
 
         <div className="product-details">
@@ -40,12 +41,16 @@ const ShopProduct = ({ view, item }) => {
             <MdStarHalf />
           </div>
           <div className="add-to-cart">
-            <button>add to cart</button>
+            <button onClick={() => addItem(item)}>add to cart</button>
           </div>
         </div>
       </div>
-      {/* {showModal && <ProductModal closeModal={this.closeModal} />} */}
     </div>
   );
 };
-export default ShopProduct;
+
+const mapDispatchToProps = dispatch => ({
+  addItem: item => dispatch(addItem(item)),
+});
+
+export default connect(null, mapDispatchToProps)(ShopProduct);

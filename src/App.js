@@ -1,4 +1,3 @@
-import { connect } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 
 // Components
@@ -14,12 +13,10 @@ import ShopPage from "./components/pages/shop-page/shop-page.comp";
 import TestPage from "./components/pages/text";
 import GoToTopBtn from "./components/utils/go-to-top-btn/go-to-top-btn.comp";
 import PopupProduct from "./components/utils/popup-product/popup-products.comp";
-import ProductModal from "./components/utils/product-modal/product-modal.comp";
 import ScrollNavar from "./components/utils/scroll-navbar/scroll-navbar.comp";
 import UpperHeader from "./components/utils/upper-header/upper-header.comp";
-import { closeModal } from "./redux/modal/modal.actions";
 
-function App({ toggleModal, closeModal }) {
+function App() {
   return (
     <div className="App">
       <UpperHeader />
@@ -41,17 +38,8 @@ function App({ toggleModal, closeModal }) {
       <PopupProduct />
       <GoToTopBtn />
       <AppFooter />
-      {toggleModal && <ProductModal closeModal={closeModal} />}
     </div>
   );
 }
 
-const mapStateToProps = state => ({
-  toggleModal: state.modal.hiddenModal,
-});
-
-const mapDispatchToProps = dispatch => ({
-  closeModal: () => dispatch(closeModal()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

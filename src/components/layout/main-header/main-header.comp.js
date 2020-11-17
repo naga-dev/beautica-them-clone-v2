@@ -15,7 +15,7 @@ import "./main-header.styles.scss";
 import { connect } from "react-redux";
 import { toggleCardMenuHidden } from "../../../redux/card-menu/card-menu.actions";
 
-const MainHeader = ({ toggleCardMenuHidden, toggleCardHidden }) => {
+const MainHeader = ({ toggleCardMenuHidden, toggleCardHidden, cartItems }) => {
   return (
     <>
       <div className="main-header">
@@ -54,7 +54,7 @@ const MainHeader = ({ toggleCardMenuHidden, toggleCardHidden }) => {
                 {/* Drop down cart menu   */}
                 <div className="in-your-cart">
                   <img src={ShoppingBag} id="header-shopping-cart" alt="" />
-                  <span className="cart-products">0</span>
+                  <span className="cart-products">{cartItems.length}</span>
 
                   <CartDropDownMenu toggleCardHidden={toggleCardHidden} />
                 </div>
@@ -72,6 +72,7 @@ const MainHeader = ({ toggleCardMenuHidden, toggleCardHidden }) => {
 
 const mapStateToProps = state => ({
   toggleCardHidden: state.toggleCardHidden.hidden,
+  cartItems: state.cartItems.cartItems,
 });
 
 const mapDispatchToProps = dispatch => ({

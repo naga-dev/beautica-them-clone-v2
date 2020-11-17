@@ -1,17 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ShoppingCardItem from "../../utils/shopping-card/shopping-card-items.comp";
+import ShoppingCartItem from "../../utils/shopping-card/shopping-card-items.comp";
+import { connect } from "react-redux";
 
 // Styles
 import "./card-page.styles.scss";
 
-const ShoppingCard = () => {
+const ShoppingCard = ({ cartItems }) => {
+  console.log(cartItems);
   return (
     <div className="cart-page-wrapper container">
       <div className="cart-page-content-wrapper font">
         <div className="cart-page-content">
           <h3>
-            your cart <span className="items-count-in-shopping-cart">(1 items)</span>
+            your cart{" "}
+            <span className="items-count-in-shopping-cart">({cartItems.length} items)</span>
           </h3>
         </div>
 
@@ -27,7 +30,9 @@ const ShoppingCard = () => {
               </tr>
             </thead>
             <tbody>
-              <ShoppingCardItem />
+              {cartItems.map(cartItem => (
+                <ShoppingCartItem key={cartItem.id} cartItem={cartItem} />
+              ))}
             </tbody>
           </table>
         </div>
@@ -75,4 +80,8 @@ const ShoppingCard = () => {
   );
 };
 
-export default ShoppingCard;
+const mapStateToProps = state => ({
+  cartItems: state.cartItems.cartItems,
+});
+
+export default connect(mapStateToProps)(ShoppingCard);

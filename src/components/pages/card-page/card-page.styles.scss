@@ -185,6 +185,17 @@
       margin-top: 15px;
     }
   }
+
+  .empty-cart {
+    display: flex;
+    align-items: center;
+
+    a {
+      margin-left: 10px;
+      color: #e7040f;
+      text-decoration: underline !important;
+    }
+  }
 }
 
 @media screen and(max-width: 1200px) {

@@ -1,7 +1,11 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { removeItem } from "../../../redux/shopping-cart/cart.actions";
 
-const ShoppingCardItem = ({ cartItem: { productName, originalImg, price, quantity } }) => {
+const ShoppingCardItem = ({ cartItem, removeItem }) => {
+  const { productName, originalImg, price, quantity } = cartItem;
+
   return (
     <tr>
       <td className="product-preview">
@@ -22,11 +26,15 @@ const ShoppingCardItem = ({ cartItem: { productName, originalImg, price, quantit
         </div>
       </td>
       <td className="font-bold">{price}</td>
-      <td className="font-bold remove-item">
+      <td className="font-bold remove-item" onClick={() => removeItem(cartItem)}>
         <span>X</span>
       </td>
     </tr>
   );
 };
 
-export default ShoppingCardItem;
+const mapDispatchToProps = dispatch => ({
+  removeItem: item => dispatch(removeItem(item)),
+});
+
+export default connect(null, mapDispatchToProps)(ShoppingCardItem);

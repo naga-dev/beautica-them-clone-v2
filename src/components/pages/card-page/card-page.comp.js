@@ -16,24 +16,31 @@ const ShoppingCard = ({ cartItems, cartItemCount }) => {
           </h3>
         </div>
 
-        <div className="shopping-cart-table">
-          <table>
-            <thead>
-              <tr>
-                <th>item</th>
-                <th>price</th>
-                <th>quantity</th>
-                <th>total</th>
-                <th>remove</th>
-              </tr>
-            </thead>
-            <tbody>
-              {cartItems.map(cartItem => (
-                <ShoppingCartItem key={cartItem.id} cartItem={cartItem} />
-              ))}
-            </tbody>
-          </table>
-        </div>
+        {cartItemCount ? (
+          <div className="shopping-cart-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>item</th>
+                  <th>price</th>
+                  <th>quantity</th>
+                  <th>total</th>
+                  <th>remove</th>
+                </tr>
+              </thead>
+              <tbody>
+                {cartItems.map(cartItem => (
+                  <ShoppingCartItem key={cartItem.id} cartItem={cartItem} />
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <div className="empty-cart">
+            <h1>No items in your cart!!</h1>
+            <Link to="/shop">Continue Shopping</Link>
+          </div>
+        )}
       </div>
 
       <div style={{ color: "#e7040f", margin: "20px 0" }}>

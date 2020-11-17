@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import PayPalCheckout from "../../../assets/images/checkout-logo-small.png";
 import { connect } from "react-redux";
+import { selectCartItemsCout } from "../../../redux/shopping-cart/cart.selectors";
 
 import { motion } from "framer-motion";
 
@@ -10,7 +11,6 @@ import { motion } from "framer-motion";
 import "./card-drop-down-menu.styles.scss";
 
 const CartDropDownMenu = ({ toggleCardHidden, cartItems, cartItemCount }) => {
-  console.log(cartItemCount);
   return (
     <>
       {toggleCardHidden && (
@@ -40,7 +40,7 @@ const CartDropDownMenu = ({ toggleCardHidden, cartItems, cartItemCount }) => {
             ))}
           </div>
 
-          {cartItems.length < 1 ? (
+          {cartItemCount < 1 ? (
             <span className="no-item-in-cart">No items in your Cart</span>
           ) : (
             <>
@@ -62,9 +62,9 @@ const CartDropDownMenu = ({ toggleCardHidden, cartItems, cartItemCount }) => {
   );
 };
 
-const mapStateToProps = ({ cart: { cartItems } }) => ({
-  cartItems,
-  cartItemCount: cartItems.reduce((accumulator, cartItem) => accumulator + cartItem.quantity, 0),
+const mapStateToProps = state => ({
+  cartItems: state.cart.cartItems,
+  cartItemCount: selectCartItemsCout(state),
 });
 
 export default connect(mapStateToProps)(CartDropDownMenu);

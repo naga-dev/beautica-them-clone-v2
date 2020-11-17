@@ -9,6 +9,7 @@ import CartLogo from "../../../assets/svg/shopping-bag.svg";
 
 // Styles
 import "./scroll-navbar.styles.scss";
+import { selectCartItemsCout } from "../../../redux/shopping-cart/cart.selectors";
 
 const ScrollNavar = ({ cartItemsCount }) => {
   const [toggleSearchBar, setToggleSearchBar] = useState(true);
@@ -81,8 +82,8 @@ const ScrollNavar = ({ cartItemsCount }) => {
   );
 };
 
-const mapStateToProps = ({ cart: { cartItems } }) => ({
-  cartItemsCount: cartItems.reduce((accumulator, cartItem) => accumulator + cartItem.quantity, 0),
+const mapStateToProps = state => ({
+  cartItemsCount: selectCartItemsCout(state),
 });
 
 export default connect(mapStateToProps)(ScrollNavar);

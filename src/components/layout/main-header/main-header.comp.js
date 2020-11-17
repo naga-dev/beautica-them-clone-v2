@@ -9,6 +9,7 @@ import MobileMainHeader from "../../utils/mobile-main-header/mobile-main-header.
 import CartDropDownMenu from "../../utils/card-drop-down-menu/card-drop-down-menu.comp";
 import AppLogo from "../../../assets/images/logo.webp";
 import ShoppingBag from "../../../assets/svg/shopping-bag.svg";
+import { selectCartItemsCout } from "../../../redux/shopping-cart/cart.selectors";
 
 // Styles
 import "./main-header.styles.scss";
@@ -70,9 +71,9 @@ const MainHeader = ({ toggleCardMenuHidden, hidden, cartItemsCount }) => {
   );
 };
 
-const mapStateToProps = ({ toggleCardHidden: { hidden }, cart: { cartItems } }) => ({
-  hidden,
-  cartItemsCount: cartItems.reduce((accumulator, cartItem) => accumulator + cartItem.quantity, 0),
+const mapStateToProps = state => ({
+  hidden: state.toggleCardHidden.hidden,
+  cartItemsCount: selectCartItemsCout(state),
 });
 
 const mapDispatchToProps = dispatch => ({
